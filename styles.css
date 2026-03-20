@@ -1,0 +1,1978 @@
+/* COMPLETE REDESIGN - BOLD & UNCONVENTIONAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #0a0a0a;
+    --white: #fafafa;
+    --accent: #ff4400;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.5;
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+/* GRAIN TEXTURE */
+.grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* NAV */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: var(--white);
+    border-bottom: 1px solid var(--black);
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.05em;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.nav-menu a:not(.nav-contact):hover {
+    opacity: 0.5;
+}
+
+.nav-contact {
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--black);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.nav-contact:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* HERO FULL */
+.hero-full {
+    min-height: 100vh;
+    padding: 10rem 3rem 6rem;
+    display: flex;
+    align-items: center;
+}
+
+.hero-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.hero-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+    opacity: 0.4;
+}
+
+.hero-h1 {
+    font-size: clamp(5rem, 12vw, 12rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    margin-bottom: 0;
+}
+
+.hero-box {
+    padding: 3rem;
+    border: 2px solid var(--black);
+    background: var(--white);
+}
+
+.hero-box p {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+}
+
+/* MARQUEE */
+.marquee-section {
+    padding: 3rem 0;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+    overflow: hidden;
+    background: var(--black);
+    color: var(--white);
+}
+
+.marquee {
+    display: flex;
+    gap: 4rem;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+}
+
+.marquee span {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* PROBLEM SECTION */
+.problem-section {
+    padding: 8rem 3rem;
+}
+
+.problem-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.problem-item {
+    padding: 4rem 3rem;
+    border: 1px solid var(--black);
+}
+
+.problem-num {
+    font-size: 0.85rem;
+    opacity: 0.3;
+    margin-bottom: 2rem;
+    letter-spacing: 0.2em;
+}
+
+.problem-item h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.problem-item p {
+    font-size: 1.05rem;
+    opacity: 0.7;
+}
+
+/* APPROACH SECTION */
+.approach-section {
+    padding: 8rem 3rem;
+    background: var(--black);
+    color: var(--white);
+}
+
+.approach-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+}
+
+.approach-left h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.approach-point {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+}
+
+.point-icon {
+    font-size: 2rem;
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+.approach-point p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* IMAGE BREAK */
+.image-break {
+    min-height: 80vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 3rem;
+}
+
+.image-content {
+    max-width: 900px;
+    text-align: center;
+    color: var(--white);
+}
+
+.image-text p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.6;
+}
+
+.image-text-large {
+    font-size: 2.5rem !important;
+    font-weight: 700;
+    opacity: 1 !important;
+    line-height: 1.3;
+}
+
+/* PRICING QUICK */
+.pricing-quick {
+    padding: 8rem 3rem;
+}
+
+.pricing-header {
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+}
+
+.pricing-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pricing-header p {
+    font-size: 1.2rem;
+    opacity: 0.6;
+}
+
+.pricing-cards {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.price-card {
+    padding: 3rem;
+    border: 2px solid var(--black);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.price-card:hover {
+    background: var(--black);
+    color: var(--white);
+    transform: translateY(-5px);
+}
+
+.price-featured {
+    background: var(--black);
+    color: var(--white);
+}
+
+.price-top {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.price-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.pricing-link {
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.pricing-link:hover {
+    opacity: 0.5;
+}
+
+/* CTA FINAL */
+.cta-final {
+    padding: 10rem 3rem;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.cta-big {
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    border: 3px solid var(--white);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.cta-big:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+.cta-sub {
+    margin-top: 3rem;
+    opacity: 0.5;
+    font-size: 1rem;
+}
+
+/* FOOTER */
+.footer {
+    padding: 4rem 3rem;
+    border-top: 2px solid var(--black);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo-img {
+    height: 35px;
+    width: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-left p {
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+.footer-right {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-right a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.footer-right a:hover {
+    opacity: 1;
+}
+
+/* PAGE HERO */
+.page-hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12rem 3rem 6rem;
+}
+
+.page-h1 {
+    font-size: clamp(4rem, 10vw, 10rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    margin-bottom: 2rem;
+}
+
+.page-sub {
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+/* SPLIT CONTENT */
+.split-content {
+    padding: 8rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 6rem;
+}
+
+.split-left-sticky {
+    position: sticky;
+    top: 150px;
+}
+
+.split-left-sticky h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.flow-block {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--black);
+}
+
+.flow-block:last-child {
+    border-bottom: none;
+}
+
+.flow-block h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.flow-block p {
+    font-size: 1.1rem;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+/* WHO SECTION */
+.who-section {
+    padding: 8rem 3rem;
+    background: var(--black);
+    color: var(--white);
+}
+
+.who-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.who-container h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+
+.who-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.who-card {
+    padding: 3rem;
+    border: 2px solid var(--white);
+}
+
+.who-card p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* NOT FOR SECTION */
+.not-for-section {
+    padding: 8rem 3rem;
+}
+
+.not-for-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.not-for-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.not-for-list {
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+.not-for-list li {
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--black);
+}
+
+.not-for-note {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+/* BIO SECTION */
+.bio-section {
+    padding: 8rem 3rem;
+}
+
+.bio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.bio-block h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.bio-block p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.7;
+}
+
+/* PHILOSOPHY SECTION */
+.philosophy-section {
+    padding: 8rem 3rem;
+    background: var(--black);
+    color: var(--white);
+}
+
+.philosophy-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-quote {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+/* APPROACH BRIEF */
+.approach-brief {
+    padding: 8rem 3rem;
+}
+
+.approach-brief-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.approach-brief-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.approach-brief-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.approach-brief-goal {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    line-height: 1.6;
+    padding: 2rem;
+    border-left: 3px solid var(--black);
+}
+
+/* CONTACT HERO */
+.contact-hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12rem 3rem 6rem;
+}
+
+.contact-hero-content {
+    text-align: center;
+}
+
+.contact-h1 {
+    font-size: clamp(4rem, 10vw, 10rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.contact-email {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: var(--black);
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    border: 3px solid var(--black);
+    margin: 1rem 0 2rem;
+    transition: all 0.3s;
+    word-break: break-all;
+    max-width: 100%;
+}
+
+.contact-email:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.contact-location {
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+
+/* CONTACT FORM SECTION */
+.contact-form-section {
+    padding: 8rem 3rem;
+    background: var(--black);
+    color: var(--white);
+}
+
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-form-container h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    font-size: 1.1rem;
+    padding: 1.2rem;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    background: var(--white);
+    color: var(--black);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-submit {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1.5rem 3rem;
+    border: 3px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-submit:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* CONTACT INFO */
+.contact-info {
+    padding: 6rem 3rem;
+}
+
+.contact-info-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.contact-info-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.contact-info-item p {
+    font-size: 1.1rem;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+/* PRICING FULL */
+.pricing-full {
+    padding: 6rem 3rem;
+}
+
+.pricing-full-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.pricing-full-card {
+    padding: 4rem 3rem;
+    border: 2px solid var(--black);
+    transition: all 0.3s;
+}
+
+.pricing-full-card:hover {
+    background: var(--black);
+    color: var(--white);
+    transform: translateY(-5px);
+}
+
+.pricing-full-featured {
+    background: var(--black);
+    color: var(--white);
+}
+
+.pricing-full-price {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pricing-full-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.pricing-full-card p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.7;
+}
+
+/* SESSION DETAILS */
+.session-details {
+    padding: 8rem 3rem;
+    background: var(--black);
+    color: var(--white);
+}
+
+.session-details-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.session-details-container h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+
+.session-details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+.session-detail-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.session-detail-item p {
+    opacity: 0.7;
+}
+
+/* IMPORTANT INFO */
+.important-info {
+    padding: 8rem 3rem;
+}
+
+.important-info-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.important-info-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.important-list {
+    list-style: none;
+}
+
+.important-list li {
+    font-size: 1.2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--black);
+}
+
+/* PROCESS SECTION */
+.process-section {
+    padding: 8rem 3rem;
+    background: var(--black);
+    color: var(--white);
+}
+
+.process-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.process-container h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.process-step {
+    padding: 3rem;
+    border: 2px solid var(--white);
+}
+
+.process-step-num {
+    font-size: 1rem;
+    opacity: 0.5;
+    margin-bottom: 2rem;
+}
+
+.process-step h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.process-step p {
+    opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .hero-h1 {
+        font-size: clamp(4rem, 10vw, 8rem);
+    }
+    
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .approach-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .pricing-cards,
+    .pricing-full-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .split-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .split-left-sticky {
+        position: static;
+    }
+    
+    .who-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bio-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .contact-info-grid,
+    .session-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .who-quick-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 1.5rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+    
+    .nav-logo-img {
+        height: 32px;
+    }
+    
+    .mobile-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 73px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 2px solid var(--black);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+    
+    .nav-contact {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero-full {
+        padding: 8rem 1.5rem 4rem;
+        min-height: auto;
+    }
+    
+    .hero-h1 {
+        font-size: clamp(3rem, 12vw, 6rem);
+    }
+    
+    .hero-box {
+        padding: 2rem;
+    }
+    
+    .hero-box p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 2rem;
+    }
+    
+    .marquee span {
+        font-size: 2rem;
+    }
+    
+    .problem-section,
+    .approach-section,
+    .who-section,
+    .not-for-section,
+    .bio-section,
+    .philosophy-section,
+    .approach-brief,
+    .pricing-quick,
+    .pricing-full,
+    .session-details,
+    .important-info,
+    .process-section,
+    .contact-info,
+    .contact-form-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .who-quick {
+        padding: 4rem 1.5rem !important;
+    }
+    
+    .contact-form-container h2 {
+        font-size: 2rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+    .form-submit {
+        font-size: 1.1rem;
+        padding: 1.2rem 2.5rem;
+        width: 100%;
+    }
+    
+    .problem-item,
+    .who-card,
+    .price-card,
+    .pricing-full-card,
+    .process-step {
+        padding: 2rem 1.5rem;
+    }
+    
+    .problem-item h3 {
+        font-size: 1.5rem;
+    }
+    
+    .problem-item p {
+        font-size: 1rem;
+    }
+    
+    .approach-left h2,
+    .page-h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    
+    .approach-point {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .approach-point p {
+        font-size: 1rem;
+    }
+    
+    .point-icon {
+        font-size: 1.5rem;
+    }
+    
+    .image-break {
+        min-height: 60vh;
+        padding: 4rem 1.5rem;
+    }
+    
+    .image-text p {
+        font-size: 1.1rem;
+    }
+    
+    .image-text-large {
+        font-size: 1.8rem !important;
+    }
+    
+    .contact-info-grid,
+    .session-details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-hero {
+        padding: 8rem 1.5rem 4rem;
+        min-height: auto;
+    }
+    
+    .contact-h1 {
+        font-size: clamp(3rem, 10vw, 6rem);
+    }
+    
+    .contact-email,
+    .contact-phone {
+        font-size: 1.2rem;
+        padding: 1rem 1.5rem;
+        width: 100%;
+        text-align: center;
+        word-break: break-all;
+        display: block;
+    }
+    
+    .page-hero {
+        padding: 8rem 1.5rem 4rem;
+        min-height: auto;
+    }
+    
+    .page-sub {
+        font-size: 1.2rem;
+    }
+    
+    .split-content {
+        padding: 4rem 1.5rem;
+    }
+    
+    .flow-block {
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    .flow-block h3 {
+        font-size: 1.5rem;
+    }
+    
+    .flow-block p {
+        font-size: 1rem;
+    }
+    
+    .who-container h2,
+    .not-for-content h2,
+    .approach-brief-content h2,
+    .pricing-header h2,
+    .who-quick-container h2,
+    .session-details-container h2,
+    .important-info-content h2,
+    .process-container h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .who-card p {
+        font-size: 1rem;
+    }
+    
+    .not-for-list li {
+        font-size: 1.05rem;
+    }
+    
+    .not-for-note {
+        font-size: 1.05rem;
+    }
+    
+    .bio-block h3 {
+        font-size: 1.3rem;
+    }
+    
+    .bio-block p {
+        font-size: 1rem;
+    }
+    
+    .philosophy-quote {
+        font-size: 1.8rem;
+    }
+    
+    .approach-brief-text {
+        font-size: 1.1rem;
+    }
+    
+    .approach-brief-goal {
+        font-size: 1.05rem;
+        padding: 1.5rem;
+    }
+    
+    .pricing-header p {
+        font-size: 1.05rem;
+    }
+    
+    .who-quick-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+    
+    .who-quick-item {
+        font-size: 1rem;
+        padding: 2rem 1.5rem !important;
+        line-height: 1.5;
+        min-height: auto;
+        width: 100%;
+    }
+    
+    .pricing-note {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    
+    .pricing-link {
+        font-size: 1.05rem;
+    }
+    
+    .contact-info-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-info-item p {
+        font-size: 1rem;
+    }
+    
+    .contact-intro {
+        font-size: 1.1rem;
+    }
+    
+    .contact-note {
+        font-size: 0.85rem;
+        padding: 0 1rem;
+    }
+    
+    .pricing-full-card {
+        padding: 3rem 2rem;
+    }
+    
+    .pricing-full-name {
+        font-size: 1.3rem;
+    }
+    
+    .pricing-full-card p {
+        font-size: 1rem;
+    }
+    
+    .session-detail-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .session-detail-item p {
+        font-size: 1rem;
+    }
+    
+    .important-list li {
+        font-size: 1.05rem;
+        padding: 1.2rem 0;
+    }
+    
+    .process-step h3 {
+        font-size: 1.5rem;
+    }
+    
+    .process-step p {
+        font-size: 1rem;
+    }
+    
+    .cta-final {
+        padding: 6rem 1.5rem;
+    }
+    
+    .cta-content h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 2rem;
+    }
+    
+    .cta-big {
+        padding: 1.2rem 3rem;
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cta-sub {
+        font-size: 0.9rem;
+        margin-top: 2rem;
+    }
+    
+    .footer {
+        padding: 3rem 1.5rem 2rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .footer-right {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .pricing-full-price {
+        font-size: 4rem;
+    }
+    
+    .price-top {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .nav {
+        padding: 1rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.1rem;
+    }
+    
+    .nav-logo-img {
+        height: 28px;
+    }
+    
+    .nav-menu {
+        top: 65px;
+        padding: 1.5rem;
+    }
+    
+    .hero-full {
+        padding: 7rem 1rem 3rem;
+    }
+    
+    .hero-h1 {
+        font-size: 2.5rem;
+        line-height: 1;
+    }
+    
+    .hero-label {
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-box {
+        padding: 1.5rem;
+    }
+    
+    .hero-box p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-box-sub {
+        font-size: 0.95rem !important;
+    }
+    
+    .hero-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    .marquee {
+        gap: 2rem;
+    }
+    
+    .marquee span {
+        font-size: 1.5rem;
+    }
+    
+    .problem-section,
+    .approach-section,
+    .who-section,
+    .not-for-section,
+    .bio-section,
+    .philosophy-section,
+    .approach-brief,
+    .pricing-quick,
+    .pricing-full,
+    .session-details,
+    .important-info,
+    .process-section,
+    .contact-info,
+    .contact-form-section,
+    .split-content {
+        padding: 3rem 1rem;
+    }
+    
+    .contact-form-container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-form {
+        gap: 1.5rem;
+    }
+    
+    .form-group {
+        gap: 0.6rem;
+    }
+    
+    .form-group label {
+        font-size: 0.75rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95rem;
+        padding: 0.9rem;
+    }
+    
+    .form-group textarea {
+        min-height: 120px;
+    }
+    
+    .form-submit {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        border-width: 2px;
+    }
+    
+    .who-quick {
+        padding: 3rem 1rem !important;
+    }
+    
+    .problem-item,
+    .who-card,
+    .price-card,
+    .pricing-full-card,
+    .process-step {
+        padding: 1.5rem 1rem;
+    }
+    
+    .who-quick-item {
+        padding: 2rem 1.5rem;
+        line-height: 1.5;
+    }
+    
+    .problem-num {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .problem-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .problem-item p {
+        font-size: 0.95rem;
+    }
+    
+    .approach-left h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .approach-point {
+        margin-bottom: 2rem;
+    }
+    
+    .approach-point p {
+        font-size: 0.95rem;
+    }
+    
+    .point-icon {
+        font-size: 1.2rem;
+    }
+    
+    .image-break {
+        min-height: 50vh;
+        padding: 3rem 1rem;
+    }
+    
+    .image-text p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .image-text-large {
+        font-size: 1.5rem !important;
+    }
+    
+    .who-container h2,
+    .not-for-content h2,
+    .approach-brief-content h2,
+    .pricing-header h2,
+    .session-details-container h2,
+    .important-info-content h2,
+    .process-container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .who-quick-container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        line-height: 1.3;
+    }
+    
+    .who-card p {
+        font-size: 0.95rem;
+    }
+    
+    .not-for-list li {
+        font-size: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .not-for-note {
+        font-size: 1rem;
+    }
+    
+    .bio-block {
+        gap: 2rem;
+    }
+    
+    .bio-block h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .bio-block p {
+        font-size: 0.95rem;
+    }
+    
+    .philosophy-quote {
+        font-size: 1.5rem;
+    }
+    
+    .approach-brief-text {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .approach-brief-goal {
+        font-size: 1rem;
+        padding: 1.2rem;
+    }
+    
+    .pricing-header {
+        margin-bottom: 2rem;
+    }
+    
+    .pricing-header p {
+        font-size: 1rem;
+    }
+    
+    .pricing-cards {
+        gap: 1.5rem;
+    }
+    
+    .price-top {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .price-label {
+        font-size: 1rem;
+    }
+    
+    .who-quick-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        line-height: 1.25;
+    }
+    
+    .who-quick-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+    
+    .who-quick-item {
+        font-size: 0.95rem;
+        padding: 1.5rem 1rem !important;
+        line-height: 1.5;
+        width: 100%;
+    }
+    
+    .pricing-note {
+        font-size: 0.85rem;
+        margin: 1.5rem auto 0.8rem;
+    }
+    
+    .pricing-link {
+        font-size: 1rem;
+    }
+    
+    .contact-hero {
+        padding: 7rem 1rem 3rem;
+    }
+    
+    .contact-h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-email,
+    .contact-phone {
+        font-size: 0.85rem;
+        padding: 0.8rem 1rem;
+        margin: 0.8rem 0;
+        word-break: break-all;
+        display: block;
+        border-width: 2px;
+    }
+    
+    .contact-location {
+        font-size: 1rem;
+    }
+    
+    .contact-info-grid {
+        gap: 2rem;
+    }
+    
+    .contact-info-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .contact-info-item p {
+        font-size: 0.95rem;
+    }
+    
+    .contact-note {
+        font-size: 0.8rem;
+        margin-top: 3rem;
+    }
+    
+    .page-hero {
+        padding: 7rem 1rem 3rem;
+    }
+    
+    .page-h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .page-sub {
+        font-size: 1rem;
+    }
+    
+    .flow-block {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .flow-block h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .flow-block p {
+        font-size: 0.95rem;
+    }
+    
+    .pricing-full-grid {
+        gap: 1.5rem;
+    }
+    
+    .pricing-full-card {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .pricing-full-price {
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .pricing-full-name {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .pricing-full-card p {
+        font-size: 0.95rem;
+    }
+    
+    .session-details-grid {
+        gap: 2rem;
+    }
+    
+    .session-detail-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .session-detail-item p {
+        font-size: 0.95rem;
+    }
+    
+    .important-list li {
+        font-size: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .process-steps {
+        gap: 2rem;
+    }
+    
+    .process-step {
+        padding: 2rem 1.5rem;
+    }
+    
+    .process-step-num {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .process-step h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .process-step p {
+        font-size: 0.95rem;
+    }
+    
+    .cta-final {
+        padding: 5rem 1rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .cta-big {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-width: 2px;
+    }
+    
+    .cta-sub {
+        font-size: 0.85rem;
+        margin-top: 1.5rem;
+    }
+    
+    .footer {
+        padding: 2.5rem 1rem 1.5rem;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.1rem;
+    }
+    
+    .footer-logo-img {
+        height: 28px;
+    }
+    
+    .footer-left p {
+        font-size: 0.85rem;
+    }
+    
+    .footer-right {
+        gap: 0.8rem;
+    }
+    
+    .footer-right a {
+        font-size: 0.85rem;
+    }
+}
+
+/* SELECTION */
+::selection {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* SMOOTH SCROLL */
+html {
+    scroll-padding-top: 100px;
+}
+
+/* WHO QUICK SECTION */
+.who-quick {
+    padding: 8rem 3rem;
+    background: var(--white);
+}
+
+.who-quick-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.who-quick-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    line-height: 1.2;
+}
+
+.who-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.who-quick-item {
+    padding: 3rem 2.5rem;
+    border: 2px solid var(--black);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.pricing-note {
+    max-width: 1400px;
+    margin: 2rem auto 1rem;
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.6;
+}
+
+.hero-box-sub {
+    font-size: 1.1rem !important;
+    opacity: 0.7;
+}
+
+.who-note {
+    margin-top: 3rem;
+    font-size: 1.1rem;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+.contact-intro {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.7;
+}
+
+.contact-phone {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: var(--black);
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    border: 3px solid var(--black);
+    margin: 1rem 0 2rem;
+    transition: all 0.3s;
+}
+
+.contact-phone:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.contact-note {
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    text-align: center;
+    font-size: 0.95rem;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+@media (max-width: 1024px) {
+    .who-quick-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
