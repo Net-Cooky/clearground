@@ -1,3 +1,9 @@
+// AUTO-UPDATE COPYRIGHT YEAR
+const yearSpan = document.getElementById('currentYear');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+
 // MARQUEE PAUSE ON HOVER
 const marquee = document.querySelector('.marquee');
 if (marquee) {

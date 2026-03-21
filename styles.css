@@ -44,13 +44,14 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
     background: var(--white);
     border-bottom: 1px solid var(--black);
+    min-height: 80px;
 }
 
 .nav-logo {
@@ -64,7 +65,7 @@ body {
 }
 
 .nav-logo-img {
-    height: 40px;
+    height: 55px;
     width: auto;
     display: block;
 }
@@ -188,6 +189,49 @@ body {
     transform: scale(1.05);
 }
 
+/* INTRO SECTION */
+.intro-section {
+    padding: 6rem 3rem;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+    background: var(--black);
+    color: var(--white);
+}
+
+.intro-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.intro-image {
+    width: 100%;
+}
+
+.intro-profile-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 3px solid var(--white);
+    aspect-ratio: 3/4;
+    object-fit: cover;
+}
+
+.intro-text {
+    display: flex;
+    align-items: center;
+}
+
+.intro-text p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
 /* MARQUEE */
 .marquee-section {
     padding: 3rem 0;
@@ -219,6 +263,16 @@ body {
 /* PROBLEM SECTION */
 .problem-section {
     padding: 8rem 3rem;
+}
+
+.problem-header {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+}
+
+.problem-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
 }
 
 .problem-grid {
@@ -265,6 +319,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 6rem;
+    align-items: center;
 }
 
 .approach-left h2 {
@@ -277,7 +332,11 @@ body {
     display: flex;
     gap: 2rem;
     margin-bottom: 3rem;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.approach-point:last-child {
+    margin-bottom: 0;
 }
 
 .point-icon {
@@ -354,6 +413,7 @@ body {
     border: 2px solid var(--black);
     text-align: center;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .price-card:hover {
@@ -365,6 +425,7 @@ body {
 .price-featured {
     background: var(--black);
     color: var(--white);
+    border-width: 3px;
 }
 
 .price-top {
@@ -376,6 +437,12 @@ body {
 .price-label {
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.price-label-large {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .pricing-link {
@@ -396,25 +463,26 @@ body {
 
 /* CTA FINAL */
 .cta-final {
-    padding: 10rem 3rem;
+    padding: 7rem 3rem;
     background: var(--black);
     color: var(--white);
     text-align: center;
 }
 
 .cta-content h2 {
-    font-size: clamp(3rem, 6vw, 6rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
 }
 
 .cta-big {
     display: inline-block;
-    padding: 1.5rem 4rem;
-    border: 3px solid var(--white);
+    padding: 1.2rem 3rem;
+    border: 2px solid var(--white);
     color: var(--white);
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
     transition: all 0.3s;
 }
@@ -425,23 +493,25 @@ body {
 }
 
 .cta-sub {
-    margin-top: 3rem;
-    opacity: 0.5;
-    font-size: 1rem;
+    margin-top: 2rem;
+    opacity: 0.4;
+    font-size: 0.9rem;
 }
 
 /* FOOTER */
 .footer {
-    padding: 4rem 3rem;
+    padding: 4rem 3rem 0;
     border-top: 2px solid var(--black);
 }
 
 .footer-content {
     max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    padding-bottom: 3rem;
 }
 
 .footer-logo {
@@ -462,12 +532,14 @@ body {
     font-size: 0.9rem;
 }
 
-.footer-right {
+.footer-center {
     display: flex;
-    gap: 2rem;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
 }
 
-.footer-right a {
+.footer-center a {
     color: var(--black);
     text-decoration: none;
     font-size: 0.9rem;
@@ -475,8 +547,54 @@ body {
     transition: opacity 0.2s;
 }
 
-.footer-right a:hover {
+.footer-center a:hover {
     opacity: 1;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.footer-phone {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.footer-phone:hover {
+    opacity: 0.6;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: var(--black);
+    transition: opacity 0.2s;
+}
+
+.footer-social a:hover {
+    opacity: 0.5;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--black);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    opacity: 0.5;
 }
 
 /* PAGE HERO */
@@ -608,6 +726,24 @@ body {
     font-size: 1.2rem;
     opacity: 0.7;
     line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.about-link-note {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.inline-link {
+    color: var(--black);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.inline-link:hover {
+    opacity: 0.6;
 }
 
 /* BIO SECTION */
@@ -642,17 +778,43 @@ body {
     color: var(--white);
 }
 
-.philosophy-content {
-    max-width: 1000px;
+.philosophy-container {
+    max-width: 1400px;
     margin: 0 auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
 }
 
-.philosophy-quote {
-    font-size: 2.5rem;
-    font-weight: 500;
-    line-height: 1.4;
-    font-style: italic;
+.philosophy-image {
+    width: 100%;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 3px solid var(--white);
+}
+
+.philosophy-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.philosophy-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.philosophy-emphasis {
+    font-size: 1.4rem !important;
+    font-weight: 700;
+    opacity: 1 !important;
+    margin-top: 0.5rem !important;
 }
 
 /* APPROACH BRIEF */
@@ -942,7 +1104,7 @@ body {
 /* PROCESS SECTION */
 .process-section {
     padding: 8rem 3rem;
-    background: var(--black);
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
     color: var(--white);
 }
 
@@ -995,6 +1157,21 @@ body {
         font-size: clamp(4rem, 10vw, 8rem);
     }
     
+    .intro-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .intro-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .intro-text p {
+        font-size: 1.15rem;
+        text-align: center;
+    }
+    
     .problem-grid {
         grid-template-columns: 1fr;
     }
@@ -1039,11 +1216,25 @@ body {
     .who-quick-grid {
         grid-template-columns: 1fr;
     }
+    
+    .philosophy-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .philosophy-text p {
+        font-size: 1.1rem;
+    }
+    
+    .philosophy-emphasis {
+        font-size: 1.25rem !important;
+    }
 }
 
 @media (max-width: 768px) {
     .nav {
-        padding: 1.5rem;
+        padding: 1.2rem 1.5rem;
+        min-height: 70px;
     }
     
     .nav-logo {
@@ -1051,7 +1242,7 @@ body {
     }
     
     .nav-logo-img {
-        height: 32px;
+        height: 45px;
     }
     
     .mobile-toggle {
@@ -1108,6 +1299,26 @@ body {
         padding: 1rem 2rem;
     }
     
+    .intro-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .intro-container {
+        gap: 2.5rem;
+    }
+    
+    .intro-image {
+        max-width: 280px;
+    }
+    
+    .intro-profile-img {
+        border-width: 2px;
+    }
+    
+    .intro-text p {
+        font-size: 1.2rem;
+    }
+    
     .marquee span {
         font-size: 2rem;
     }
@@ -1127,6 +1338,19 @@ body {
     .contact-info,
     .contact-form-section {
         padding: 4rem 1.5rem;
+    }
+    
+    .philosophy-text p {
+        font-size: 1.05rem;
+    }
+    
+    .philosophy-emphasis {
+        font-size: 1.15rem !important;
+    }
+    
+    .problem-header h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
     
     .who-quick {
@@ -1278,8 +1502,41 @@ body {
         font-size: 1rem;
     }
     
+    .philosophy-section {
+        padding: 4rem 1.5rem;
+    }
+    
     .philosophy-quote {
         font-size: 1.8rem;
+    }
+    
+    .philosophy-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .philosophy-image {
+        max-width: 350px;
+        margin: 0 auto;
+        position: static;
+    }
+    
+    .profile-img {
+        border-width: 2px;
+    }
+    
+    .philosophy-text {
+        gap: 1.2rem;
+    }
+    
+    .philosophy-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .philosophy-emphasis {
+        font-size: 1.2rem !important;
+        margin-top: 0.3rem;
     }
     
     .approach-brief-text {
@@ -1368,7 +1625,7 @@ body {
     }
     
     .cta-final {
-        padding: 6rem 1.5rem;
+        padding: 5rem 1.5rem;
     }
     
     .cta-content h2 {
@@ -1377,30 +1634,40 @@ body {
     }
     
     .cta-big {
-        padding: 1.2rem 3rem;
-        font-size: 1.1rem;
+        padding: 1.1rem 2.5rem;
+        font-size: 1rem;
         width: 100%;
         text-align: center;
     }
     
     .cta-sub {
-        font-size: 0.9rem;
-        margin-top: 2rem;
+        font-size: 0.85rem;
+        margin-top: 1.8rem;
     }
     
     .footer {
-        padding: 3rem 1.5rem 2rem;
+        padding: 3rem 1.5rem 0;
     }
     
     .footer-content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
         padding-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .footer-center {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
     }
     
     .footer-right {
-        flex-direction: column;
-        gap: 1rem;
+        align-items: center;
+    }
+    
+    .footer-bottom {
+        padding: 1.5rem 0;
     }
     
     .pricing-full-price {
@@ -1409,6 +1676,10 @@ body {
     
     .price-top {
         font-size: 3rem;
+    }
+    
+    .price-label-large {
+        font-size: 2rem;
     }
 }
 
@@ -1419,6 +1690,7 @@ body {
     
     .nav {
         padding: 1rem;
+        min-height: 60px;
     }
     
     .nav-logo {
@@ -1426,11 +1698,11 @@ body {
     }
     
     .nav-logo-img {
-        height: 28px;
+        height: 38px;
     }
     
     .nav-menu {
-        top: 65px;
+        top: 60px;
         padding: 1.5rem;
     }
     
@@ -1466,6 +1738,23 @@ body {
         font-size: 0.9rem;
     }
     
+    .intro-section {
+        padding: 3rem 1rem;
+    }
+    
+    .intro-container {
+        gap: 2rem;
+    }
+    
+    .intro-image {
+        max-width: 240px;
+    }
+    
+    .intro-text p {
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+    
     .marquee {
         gap: 2rem;
     }
@@ -1490,6 +1779,23 @@ body {
     .contact-form-section,
     .split-content {
         padding: 3rem 1rem;
+    }
+    
+    .philosophy-text p {
+        font-size: 0.95rem;
+    }
+    
+    .philosophy-emphasis {
+        font-size: 1.05rem !important;
+    }
+    
+    .profile-img {
+        border-width: 2px;
+    }
+    
+    .problem-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
     
     .contact-form-container h2 {
@@ -1630,8 +1936,40 @@ body {
         font-size: 0.95rem;
     }
     
+    .philosophy-section {
+        padding: 3rem 1rem;
+    }
+    
     .philosophy-quote {
         font-size: 1.5rem;
+    }
+    
+    .philosophy-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .philosophy-image {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .profile-img {
+        border-width: 2px;
+    }
+    
+    .philosophy-text {
+        gap: 1rem;
+    }
+    
+    .philosophy-text p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .philosophy-emphasis {
+        font-size: 1rem !important;
+        margin-top: 0.2rem;
     }
     
     .approach-brief-text {
@@ -1828,33 +2166,53 @@ body {
     }
     
     .cta-final {
-        padding: 5rem 1rem;
+        padding: 4rem 1rem;
     }
     
     .cta-content h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-bottom: 1.5rem;
         line-height: 1.2;
     }
     
     .cta-big {
         padding: 1rem 2rem;
-        font-size: 1rem;
+        font-size: 0.95rem;
         border-width: 2px;
     }
     
     .cta-sub {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         margin-top: 1.5rem;
     }
     
     .footer {
-        padding: 2.5rem 1rem 1.5rem;
+        padding: 2.5rem 1rem 0;
     }
     
     .footer-content {
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
         padding-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-center {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+    
+    .footer-right {
+        align-items: center;
+    }
+    
+    .footer-bottom {
+        padding: 1.2rem 0;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.75rem;
     }
     
     .footer-logo {
@@ -1863,18 +2221,20 @@ body {
     
     .footer-logo-img {
         height: 28px;
+        margin: 0 auto 0.5rem;
     }
     
     .footer-left p {
         font-size: 0.85rem;
     }
     
-    .footer-right {
-        gap: 0.8rem;
+    .footer-phone {
+        font-size: 0.9rem;
     }
     
-    .footer-right a {
-        font-size: 0.85rem;
+    .footer-social svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -1931,13 +2291,6 @@ html {
 .hero-box-sub {
     font-size: 1.1rem !important;
     opacity: 0.7;
-}
-
-.who-note {
-    margin-top: 3rem;
-    font-size: 1.1rem;
-    opacity: 0.7;
-    line-height: 1.6;
 }
 
 .contact-intro {
