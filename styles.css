@@ -343,6 +343,7 @@ body {
     font-size: 2rem;
     opacity: 0.5;
     flex-shrink: 0;
+    align-self: flex-start;
 }
 
 .approach-point p {
