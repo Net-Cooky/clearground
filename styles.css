@@ -2926,3 +2926,317 @@ html {
         font-size: 1.05rem !important;
     }
 }
+
+
+/* THOUGHTS SECTION */
+.thoughts-intro {
+    padding: 6rem 3rem;
+    background: var(--black);
+    color: var(--white);
+}
+
+.thoughts-intro-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.thoughts-intro-container p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.thoughts-signature {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.thoughts-signature p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.signature-img {
+    max-width: 200px;
+    height: auto;
+    margin: 1.5rem 0;
+    opacity: 0.8;
+}
+
+.signature-name {
+    font-size: 1.1rem !important;
+    font-weight: 500;
+    opacity: 1 !important;
+}
+
+.thoughts-list {
+    padding: 8rem 3rem;
+}
+
+.thoughts-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.thoughts-list-container h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+
+.thought-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.thought-card {
+    padding: 3rem;
+    border: 2px solid var(--black);
+    text-decoration: none;
+    color: var(--black);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.thought-card:hover {
+    background: var(--black);
+    color: var(--white);
+    transform: translateY(-5px);
+}
+
+.thought-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.thought-excerpt {
+    font-size: 1.05rem;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.thought-read {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ARTICLE PAGES */
+.article-hero {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12rem 3rem 6rem;
+}
+
+.article-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.article-back {
+    display: inline-block;
+    font-size: 0.95rem;
+    color: var(--black);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.article-back:hover {
+    opacity: 1;
+}
+
+.article-h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+.article-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.article-content {
+    padding: 6rem 3rem;
+}
+
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-quote {
+    padding: 3rem;
+    border-left: 3px solid var(--black);
+    margin-bottom: 3rem;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.article-quote p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.quote-author {
+    font-size: 1.1rem !important;
+    opacity: 0.6;
+    font-style: normal !important;
+}
+
+.article-container p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.article-note {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--black);
+}
+
+.article-note p {
+    font-size: 0.95rem;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* RESPONSIVE - THOUGHTS */
+@media (max-width: 1024px) {
+    .thought-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .thoughts-intro {
+        padding: 4rem 1.5rem;
+    }
+    
+    .thoughts-intro-container p {
+        font-size: 1.05rem;
+    }
+    
+    .signature-img {
+        max-width: 150px;
+    }
+    
+    .thoughts-list {
+        padding: 4rem 1.5rem;
+    }
+    
+    .thoughts-list-container h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .thought-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .thought-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .thought-excerpt {
+        font-size: 1rem;
+    }
+    
+    .article-hero {
+        padding: 8rem 1.5rem 4rem;
+        min-height: auto;
+    }
+    
+    .article-h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+    
+    .article-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .article-content {
+        padding: 4rem 1.5rem;
+    }
+    
+    .article-quote {
+        padding: 2rem 1.5rem;
+    }
+    
+    .article-quote p {
+        font-size: 1.2rem;
+    }
+    
+    .article-container p {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .thoughts-intro {
+        padding: 3rem 1rem;
+    }
+    
+    .thoughts-intro-container p {
+        font-size: 1rem;
+    }
+    
+    .signature-img {
+        max-width: 120px;
+    }
+    
+    .thoughts-list {
+        padding: 3rem 1rem;
+    }
+    
+    .thought-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .thought-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .article-hero {
+        padding: 7rem 1rem 3rem;
+    }
+    
+    .article-h1 {
+        font-size: 2rem;
+    }
+    
+    .article-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .article-content {
+        padding: 3rem 1rem;
+    }
+    
+    .article-quote {
+        padding: 1.5rem 1rem;
+    }
+    
+    .article-quote p {
+        font-size: 1.1rem;
+    }
+    
+    .article-container p {
+        font-size: 1rem;
+    }
+}
